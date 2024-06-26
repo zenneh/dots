@@ -1,0 +1,13 @@
+(defvar calendarHovered false)
+
+(defwidget dropdown-wrapper []
+  (box 
+    :orientation "v"
+    :tooltip "hovered: ${calendarHovered}"
+    (eventbox
+      :onhover "eww -c ~/dots/eww/themes/ukiyo open calendarScreen"
+      :onhoverlost  "eww -c ~/dots/eww/themes/ukiyo close calendarScreen"
+      (children :nth 0)
+    )
+  )
+)

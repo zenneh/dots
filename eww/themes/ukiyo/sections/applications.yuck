@@ -1,0 +1,28 @@
+; includez
+(include "./components/application.yuck")
+
+
+(defvar application_mappings '
+  {
+    "firefox" : "󰈹",
+    "spotify" : "",
+    "kitty" : "",
+    "discord" : "󰙯"
+  }
+')
+
+(defwidget applications [application]
+  (box
+    :class "workspace-container"
+    :vexpand false
+    :hexpand false
+    :space-evenly false
+
+    (revealer
+      :transition "slideright"
+      :reveal {strlength(application.title) > 0}
+      :duration "50ms"
+      (application :icon "${application_mappings?.[application?.class] ?: application?.class}" :name "${application?.title}")
+    )
+  )
+)

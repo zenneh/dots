@@ -1,0 +1,29 @@
+(defwidget clock [long time extra]
+  (box
+    :spacing 4
+    :vexpand false
+    :hexpand false
+    :space-evenly false
+    :class "clock"
+
+    (label
+        :text long
+        :class "date"
+    )
+
+    (label
+        :text "•"
+        :class "sep"
+    )
+
+    (label
+        :text time
+        :class "time"
+    )
+
+    (label
+        :text extra
+        :class "extension"
+    )
+  )
+)

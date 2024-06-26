@@ -1,0 +1,50 @@
+* {
+  font-family: Inter;
+  font-size: 1rem;
+  background: transparent;
+}
+
+#window{
+  background: rgba(2,2,2, .10);
+}
+
+#main {
+  border-radius: 4px;
+}
+
+box#main {
+
+}
+
+list#main {
+  margin-top: 1em;
+  background: rgba(2, 2, 2, .35);
+}
+
+
+#plugin, #match {
+  padding: 2px;  
+  border-radius: 4px;
+}
+
+#entry {
+  background: rgba(2, 2, 2, .35);
+  border: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+
+#match:selected {
+  color: rgba(204, 204, 204, 1);
+  background: rgba(2, 2, 2, .35);
+}
+
+box#match {
+  color: rgba(204, 204, 204, .80);
+}
+
+label#plugin {
+  color: rgba(204, 204, 204, 1);
+}
+

@@ -1,0 +1,20 @@
+(include "./components/clock.yuck")
+(defwidget time [time]
+  (box 
+    :class "workspace-container"
+    :vexpand false
+    :hexpand false
+    :space-evenly false
+
+    ; date
+
+    ; time
+
+    ; am/pm
+    (clock
+      :long "${formattime(time, "%a %d %b")}"
+      :time "${formattime(time, "%R")}"
+      :extra "${formattime(time, "%P")}"
+    )
+  )
+)

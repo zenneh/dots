@@ -1,0 +1,92 @@
+; icludes
+(include "./sections/workspaces.yuck")
+(include "./sections/applications.yuck")
+(include "./sections/time.yuck")
+(include "./sections/audioPlayer.yuck")
+(include "./components/dropdown-wrapper.yuck")
+
+; listeners
+(deflisten applicationListener :initial "{}" "hyprland-activewindow")
+
+; positional widgets
+(defwidget left []
+  (box
+    :class "section"
+    :space-evenly false
+    :spacing 4
+    :halign "start"
+    
+    (workspaces)
+ (audio)
+    
+    (revealer
+      :transition "slideright"
+      :reveal {strlength("${applicationListener}") > 0}
+      :duration "50ms"
+
+      (applications :application applicationListener)
+    )
+
+  )
+)
+
+(defwidget center []
+  (box
+    :class "section"
+    :space-evenly false
+    :spacing 8
+    
+    (time :time EWW_TIME)
+  )
+)
+
+(defwidget right []
+  (box
+    :class "section"
+    :space-evenly false
+    :spacing 8
+    :halign "end"
+    
+    ; (workspaces)
+  )
+)
+
+; main bar
+(defwidget bar []
+  (centerbox
+    :class "bar"
+
+    (left)
+    (center)
+    (right)
+  )
+)
+
+; screen
+(defwindow screen
+           :monitor 0
+           :geometry (geometry 
+                             
+                             :width "100%"
+                              :anchor "top center")
+           :stacking "bg"
+           :exclusive true
+
+(bar))
+
+(defwindow calendarScreen
+  :monitor 0
+  :geometry (geometry 
+                  
+                    :width "100%"
+                     :anchor "top center")
+  :stacking "bg"
+
+  (revealer
+    :transition "slidedown"
+    :reveal true
+    :duration "200ms"
+
+    (calendar)
+  )
+)

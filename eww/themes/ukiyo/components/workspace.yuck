@@ -1,0 +1,11 @@
+(defwidget workspace [name active onclick]
+  (button
+    :onclick onclick
+    :active {!active}
+    :class {active ? "workspace active" : "workspace"}
+    :height 20
+    :width 20
+
+    name
+  )
+)

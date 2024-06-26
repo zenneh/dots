@@ -1,0 +1,34 @@
+; icludes
+(include "./components/workspace.yuck")
+
+; listeners
+(deflisten workspaceListener :initial "[]" "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+
+(defvar workspace_mappings '
+  {
+    "1" : "一",
+    "2" : "二",
+    "3" : "三",
+    "4" : "四",
+    "5" : "五",
+    "6" : "六",
+    "7" : "七",
+    "8" : "八",
+    "9" : "九",
+    "10" : "零/〇"
+  }
+')
+
+(defwidget workspaces []
+    (box 
+      :class "workspace-container"
+      :spacing 2
+      :vexpand false
+      :hexpand false
+      :space-evenly false
+
+      (for i in workspaceListener
+        (workspace
+          :name "${workspace_mappings[i.id]}"
+          :active "${i.active}"
+          :onclick "hyprctl dispatch workspace ${i.id}"))))

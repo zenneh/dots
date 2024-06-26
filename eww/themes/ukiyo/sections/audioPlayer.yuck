@@ -1,0 +1,15 @@
+(deflisten currentTrackListener :initial "{}" `playerctl -a -F metadata --format '{"title":"{{title}}","album":"{{album}}","status":"{{status}}","image":"{{mpris:artUrl}}"}'` )
+(include "./components/audioplayer.yuck")
+
+(defwidget audio []
+  (revealer
+    :reveal "${(currentTrackListener?.title != '')}"
+    :transition "slideright"
+    :duration "200ms"
+    (audioplayer
+      :title "${currentTrackListener?.title}"
+      :artist "${currentTrackListener?.artist}"
+      :image "${currentTrackListener?.image}"
+    )
+  )
+)

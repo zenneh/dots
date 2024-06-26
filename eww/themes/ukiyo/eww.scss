@@ -1,0 +1,88 @@
+* {
+  all: unset;
+  font-family: "Inter";
+  font-size: 14px;
+  transition: all 200ms ease-in;
+}
+
+
+// colors
+$c-background: rgba(2, 2, 2, .60);
+$c-surface: rgb(204, 204, 204, .10);
+// $c-surface: rgba(2, 2, 2, .80);
+$c-text: rgb(80, 80,80);
+$c-primary: rgb(204, 204, 204);
+
+
+// radius
+$r-border: 4px;
+
+// padding
+$p-small: 2px;
+$p-normal: 4px;
+$p-large: 8px;
+
+.audio-meta {
+  padding: 0 $p-small;
+}
+
+.test-image {
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+}
+
+.section {}
+
+.bar {
+  padding: $p-normal $p-normal  0 $p-normal;
+}
+
+.workspace-container {
+  background-color: $c-background;
+  border-radius: $r-border;
+  padding: $p-small;
+}
+
+.workspace {
+  color: $c-text;
+  background-color: transparent;
+  border-radius: $r-border;
+  padding: 0 $p-large;
+
+  &:hover {
+    background-color: $c-surface;
+  }
+
+  &.active {
+    color: $c-primary;
+  }
+
+  &.application-icon {
+    font-family: "Fira Code";
+  }
+}
+
+.clock {
+  padding: 0 $p-large;
+  
+  .date {
+    color: $c-primary;
+  }
+
+  .sep {
+    color: $c-text;
+  }
+
+  .time {
+    color: $c-primary;
+  }
+
+  .extension {
+    font-size: 14px;
+    font-weight: bold;
+    color: $c-text;
+  }
+}
+

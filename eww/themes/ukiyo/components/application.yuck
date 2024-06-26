@@ -1,0 +1,22 @@
+(defwidget application [?icon name]
+   (box
+      :space-evenly false
+      :class "workspace"
+      :spacing 8
+   
+      (label
+         :text icon
+         :wrap false
+         :justify "center"
+         :limit-width 36
+         :class "application-icon"
+     ) 
+
+      (label
+         :text name
+         :wrap false
+         :justify "center"
+         :limit-width 36
+     )
+   )
+)

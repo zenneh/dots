@@ -1,0 +1,77 @@
+; (deflistener currentTrackListener `playerctl -a -F metadata --format "[ 'title':'{{title}}', 'album': '{{album}}', 'status': '{{status}}', 'player': '{{playerName}}', 'image': '{{mpris:artUrl}}']"` )
+
+(defwidget audioplayer [?title ?artist ?image ]
+  (box
+    :class "workspace-container"
+    :vexpand false
+    (revealer 
+      :reveal true
+      :transition "slideright"
+      :duration '50ms'
+
+      (songData 
+        :title title
+        :artist artist
+        :image image
+      )
+    )
+  )
+)
+
+
+(defwidget songData [?title ?artist ?image]
+  (box
+    :vexpand false
+    :space-evenly false
+    :class "audio-meta"
+    ; (image
+    ;   :path "${replace(image, "file://", "")}"
+    ;   :image-width 24
+    ;   :image-height 24
+    ;   :style "background-position: center; background-image: url(${image ?: ''})"
+    ; )
+    (box
+      :height 24
+      :width 24
+      :class "test-image"
+      :style "background-image: url('${image}');"
+    )
+
+    ; title
+    (label
+      :class "workspace"
+      :text "${title ?: "Unknown"}"
+      :limit-width 24
+    )
+    (revealer
+      :reveal "${(artist ?: false)}"
+      :transition "slideright"
+      :duration '50ms'
+      (box
+        :space-evenly false
+        (label
+            :text "•"
+            :class "sep"
+        )
+        (label
+          :class "workspace"
+          :text "${artist ?: "Unknown"}"
+          :limit-width 18
+        )
+      )
+
+    )
+  )
+)
+
+(defwidget songControls []
+  (box
+    ;slider
+
+    ;back
+
+    ;play/pause
+
+    ;forward
+  )
+)
